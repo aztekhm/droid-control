@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DROID CONTROL FOR WINAMP</string>
+    <string name="menu_settings">SETTINGS</string>
+    
+    <!-- Tabs title -->
+    <string name="tab_player">PLAYER</string>
+    <string name="tab_playlist">PLAYLIST</string>
+    <string name="tab_equalizer">EQUALIZER</string>
+    
+    <!-- Equalizer tags -->
+    <string name="preamp">PREAMP</string>
+    <string name="eq0">60Hz</string>
+    <string name="eq1">170Hz</string>
+    <string name="eq2">310Hz</string>
+    <string name="eq3">600Hz</string>
+    <string name="eq4">1KHz</string>
+    <string name="eq5">3KHz</string>
+    <string name="eq6">6KHz</string>
+    <string name="eq7">12KHz</string>
+    <string name="eq8">14KHz</string>
+    <string name="eq9">16KHz</string>
+
+    <!-- Toggle buttons -->
+    <string name="toggle_repeat">REPEAT</string>
+    <string name="toggle_shuffle">SHUFFLE</string>
+    <string name="toggle_mute">MUTE</string>
+    
+    <!-- Messages -->
+    <string name="msg_connecting">Conecting&#8230;</string>
+    <string name="msg_connected">Connected</string>
+    <string name="msg_conntimeout">Connection timeout</string>
+    
+    <!-- Settings -->
+    <string name="connection_preferences">Connection</string>
+    
+    <!-- Key Settings -->
+    <string name="pref_ip">pref_ip</string>
+    <string name="pref_port">pref_port</string>
+    <string name="pref_timeout">pref_timeout</string>
+    
+    <string name="prev_track">PV</string>
+    <string name="play_track">PL</string>
+    <string name="stop_track">ST</string>
+    <string name="next_track">NX</string>
+    <string name="pause_track">PS</string>
+    
+</resources>
