@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">DROID CONTROL FOR WINAMP</string>
-    <string name="menu_settings">SETTINGS</string>
+    <string name="app_name">Droid Control For Winamp</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About app</string>
     
     <!-- Tabs title -->
-    <string name="tab_player">PLAYER</string>
-    <string name="tab_playlist">PLAYLIST</string>
-    <string name="tab_equalizer">EQUALIZER</string>
+    <string name="tab_player">Player</string>
+    <string name="tab_playlist">Playlist</string>
+    <string name="tab_equalizer">Equalizer</string>
     
     <!-- Equalizer tags -->
-    <string name="preamp">PREAMP</string>
+    <string name="preamp">Preamp</string>
     <string name="eq0">60Hz</string>
     <string name="eq1">170Hz</string>
     <string name="eq2">310Hz</string>
@@ -23,9 +24,9 @@
     <string name="eq9">16KHz</string>
 
     <!-- Toggle buttons -->
-    <string name="toggle_repeat">REPEAT</string>
-    <string name="toggle_shuffle">SHUFFLE</string>
-    <string name="toggle_mute">MUTE</string>
+    <string name="toggle_repeat">Repeat</string>
+    <string name="toggle_shuffle">Shuffle</string>
+    <string name="toggle_mute">Mute</string>
     
     <!-- Messages -->
     <string name="msg_connecting">Conecting&#8230;</string>
@@ -39,11 +40,25 @@
     <string name="pref_ip">pref_ip</string>
     <string name="pref_port">pref_port</string>
     <string name="pref_timeout">pref_timeout</string>
+    <string name="ip_summary">Enter the Winamp Host IP address</string>
+    <string name="port_summary">Enter the Winamp Port to listen messages</string>
+    <string name="timeout_summary">Enter timeout in milliseconds</string>
+    <string name="ip_title">Winamp Host IP</string>
+    <string name="port_title">Listener port</string>
+    <string name="timeout_title">Timeout</string>
+    
+    <!-- Default preferences values -->    
+    <string name="default_ip">192.168.1.150</string>
+    <string name="default_port">670</string>
+    <string name="default_timeout">3000</string>
     
     <string name="prev_track">PV</string>
     <string name="play_track">PL</string>
     <string name="stop_track">ST</string>
     <string name="next_track">NX</string>
     <string name="pause_track">PS</string>
+    
+    <!-- Key Intent's extras -->
+    <string name="key_connected">connected</string>
     
 </resources>

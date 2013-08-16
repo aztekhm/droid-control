@@ -12,6 +12,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 public class MessagingService {
+  
+  private static final String TAG = "MessagingService";
 	
 	private class ConnectTask extends AsyncTask<Object, Void, Socket> {
 		
@@ -83,6 +85,7 @@ public class MessagingService {
 	
 	public void start(String ip, int port, int timeout) {
 		new ConnectTask().execute(ip, port, timeout);
+		Log.d(TAG, "Starting service in IP " + ip + ", port " + port + " whith a timeout of " + timeout);
 	}
 	
 	public void stop() {

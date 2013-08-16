@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:title="@string/connection_preferences">
+
+        <EditTextPreference
+            android:defaultValue="@string/default_ip"
+            android:key="@string/pref_ip"
+            android:summary="@string/ip_summary"
+            android:title="@string/ip_title" />
+
+        <EditTextPreference
+            android:defaultValue="@string/default_port"
+            android:key="@string/pref_port"
+            android:summary="@string/port_summary"
+            android:title="@string/port_title" />
+
+        <EditTextPreference
+            android:defaultValue="@string/default_timeout"
+            android:key="@string/pref_timeout"
+            android:summary="@string/timeout_summary"
+            android:title="@string/timeout_title" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

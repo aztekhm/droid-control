@@ -23,38 +23,38 @@ public class PreferencesActivity extends PreferenceActivity implements OnSharedP
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		addPreferencesFromResource(R.layout.preferences);
+		addPreferencesFromResource(R.xml.preferences);
 		
 		resources = getResources();
 		preferenceValues = PreferenceManager.getDefaultSharedPreferences(this);
 		
-		KEY_IP = resources.getString(R.string.pref_ip);
-		KEY_PORT = resources.getString(R.string.pref_port);
-		KEY_TIMEOUT = resources.getString(R.string.pref_timeout);
-		
-		preferenceIp = findPreference(KEY_IP);
-		preferencePort = findPreference(KEY_PORT);
-		preferenceTimeout = findPreference(KEY_TIMEOUT);
-		
-		preferenceIp.setSummary(preferenceValues.getString(KEY_IP, ""));
-		preferencePort.setSummary(preferenceValues.getString(KEY_PORT, ""));
-		preferenceTimeout.setSummary(preferenceValues.getString(KEY_TIMEOUT, ""));
+//		KEY_IP = resources.getString(R.string.pref_ip);
+//		KEY_PORT = resources.getString(R.string.pref_port);
+//		KEY_TIMEOUT = resources.getString(R.string.pref_timeout);
+//		
+//		preferenceIp = findPreference(KEY_IP);
+//		preferencePort = findPreference(KEY_PORT);
+//		preferenceTimeout = findPreference(KEY_TIMEOUT);
+//		
+//		preferenceIp.setSummary(preferenceValues.getString(KEY_IP, ""));
+//		preferencePort.setSummary(preferenceValues.getString(KEY_PORT, ""));
+//		preferenceTimeout.setSummary(preferenceValues.getString(KEY_TIMEOUT, ""));
 		
 		preferenceValues.registerOnSharedPreferenceChangeListener(this);
 	}
 	
 	@Override
 	public void onSharedPreferenceChanged(SharedPreferences preferences, String key) {
-		if (key.equals(KEY_IP)) {
-			preferenceIp.setSummary(preferences.getString(key, ""));
-			
-		} else if (key.equals(KEY_PORT)) {
-			preferencePort.setSummary(preferences.getString(key, ""));
-			
-		} else if (key.equals(KEY_TIMEOUT)) {
-			preferenceTimeout.setSummary(preferences.getString(key, ""));
-			
-		}
+//		if (key.equals(KEY_IP)) {
+//			preferenceIp.setSummary(preferences.getString(key, ""));
+//			
+//		} else if (key.equals(KEY_PORT)) {
+//			preferencePort.setSummary(preferences.getString(key, ""));
+//			
+//		} else if (key.equals(KEY_TIMEOUT)) {
+//			preferenceTimeout.setSummary(preferences.getString(key, ""));
+//			
+//		}
 	}
 }
 

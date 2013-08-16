@@ -106,7 +106,9 @@ public class MessageListener extends AsyncTask<Void, String, Void> {
 					int playingTrack = Integer.valueOf(entrys[0]) + 1;
 					for (int i=1; i<entrys.length; i++) {
 						String[] entry = entrys[i].split("[|]");
-						PlaylistActivity.addEntry(new PlaylistEntry(entry[0], entry[1], playingTrack == i));
+						if(entry.length == 2){
+						  PlaylistActivity.addEntry(new PlaylistEntry(entry[0], entry[1], playingTrack == i));
+						}
 					}
 					
 				}
