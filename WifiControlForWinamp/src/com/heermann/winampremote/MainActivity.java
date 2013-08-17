@@ -27,7 +27,6 @@ public class MainActivity extends TabActivity {
   private ProgressDialog workingDialog;
 
   // /---------------------- OTHER -------------------///
-  public static MessagingService msgService;
   public static SharedPreferences preferences;
   public static Resources resources;
 
@@ -45,7 +44,6 @@ public class MainActivity extends TabActivity {
     connectWithHost();
 
     preferences = PreferenceManager.getDefaultSharedPreferences(this);
-    msgService = new MessagingService(this);
     resources = getResources();
     addTabs();
   }

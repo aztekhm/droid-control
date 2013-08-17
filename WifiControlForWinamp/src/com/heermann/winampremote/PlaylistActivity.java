@@ -14,6 +14,7 @@ public class PlaylistActivity extends ListActivity {
 	
 	public static List<PlaylistEntry> entrys;
 	private static PlaylistAdapter adapter;
+	private MessagingService messagingService;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,8 @@ public class PlaylistActivity extends ListActivity {
 		entrys = new ArrayList<PlaylistEntry>();
 		adapter = new PlaylistAdapter(this, android.R.id.list, entrys);
 		setListAdapter(adapter);
+		
+		messagingService = new MessagingService((WifiControlApp) getApplication());
 	}
 	
 	public static void addEntry(PlaylistEntry entry) {
@@ -32,6 +35,6 @@ public class PlaylistActivity extends ListActivity {
 	
 	@Override
 	protected void onListItemClick(ListView l, View v, int track, long id) {
-		MainActivity.msgService.send(4, track);
+	  messagingService.send(4, track);
 	}
 }

@@ -17,17 +17,19 @@ public class EqualizerActivity extends Activity {
 		@Override public void onStartTrackingTouch(SeekBar seekBar) {}
 		@Override public void onStopTrackingTouch(SeekBar seekBar) {}
 		@Override public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-			if (fromUser) MainActivity.msgService.send(43, band, 63-progress);
+			if (fromUser) messagingService.send(43, band, 63-progress);
 		}
 		
 	}
 	
 	public static SeekBar[] equalizer;
 	private EqualizerChangeListener[] eqListeners;
+	private MessagingService messagingService;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.equalizer);
 		
 		equalizer = new SeekBar[10];
@@ -47,5 +49,7 @@ public class EqualizerActivity extends Activity {
 			eqListeners[i] = new EqualizerChangeListener(i);
 			equalizer[i].setOnSeekBarChangeListener(eqListeners[i]);
 		}
+		
+		messagingService = new MessagingService((WifiControlApp) getApplication());
 	}
 }
