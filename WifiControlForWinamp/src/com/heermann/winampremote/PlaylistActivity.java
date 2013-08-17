@@ -25,7 +25,7 @@ public class PlaylistActivity extends ListActivity {
 		adapter = new PlaylistAdapter(this, android.R.id.list, entrys);
 		setListAdapter(adapter);
 		
-		messagingService = new MessagingService((WifiControlApp) getApplication());
+		messagingService = MessagingService.getInstance();
 	}
 	
 	public static void addEntry(PlaylistEntry entry) {

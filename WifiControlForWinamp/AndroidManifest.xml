@@ -32,6 +32,7 @@
         
         <!-- Services -->
         <service android:name="com.heermann.winampremote.services.ConnectionService"/>
+        
     </application>
 
 </manifest>

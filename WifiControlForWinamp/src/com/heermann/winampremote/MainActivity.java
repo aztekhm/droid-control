@@ -94,21 +94,24 @@ public class MainActivity extends TabActivity {
   private void addTabs() {
     tabHost = getTabHost();
 
-    tabHost.addTab(tabHost.newTabSpec(getString(R.string.tab_player))
+    tabHost.addTab(tabHost
+        .newTabSpec(getString(R.string.tab_player))
         .
         // setIndicator(resources.getString(R.string.tab_player),
         // resources.getDrawable(android.R.drawable.ic_menu_agenda)).
         setIndicator(getString(R.string.tab_player))
         .setContent(new Intent(this, PlayerActivity.class)));
 
-    tabHost.addTab(tabHost.newTabSpec(getString(R.string.tab_playlist))
+    tabHost.addTab(tabHost
+        .newTabSpec(getString(R.string.tab_playlist))
         .
         // setIndicator(resources.getString(R.string.tab_playlist),
         // resources.getDrawable(android.R.drawable.ic_menu_agenda)).
         setIndicator(getString(R.string.tab_playlist))
         .setContent(new Intent(this, PlaylistActivity.class)));
 
-    tabHost.addTab(tabHost.newTabSpec(getString(R.string.tab_equalizer))
+    tabHost.addTab(tabHost
+        .newTabSpec(getString(R.string.tab_equalizer))
         .
         // setIndicator(resources.getString(R.string.tab_equalizer),
         // resources.getDrawable(android.R.drawable.ic_menu_agenda)).
@@ -147,6 +150,9 @@ public class MainActivity extends TabActivity {
             MessageListener messageListener = new MessageListener(
                 wifiControlApp.getHostConnection().getInputStream());
             messageListener.execute();
+            
+            MessagingService.getInstance().setSocket(
+                wifiControlApp.getHostConnection());
           } catch (IOException e) {
             Log.d(TAG, e.getMessage());
           }

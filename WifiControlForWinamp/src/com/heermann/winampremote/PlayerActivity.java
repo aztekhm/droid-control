@@ -68,7 +68,8 @@ public class PlayerActivity extends Activity {
     volumeControl.setOnSeekBarChangeListener(volumeChangeListener);
     progressSong.setOnSeekBarChangeListener(progressSongChangeListener);
 
-    messagingService = new MessagingService((WifiControlApp) getApplication());
+    messagingService = MessagingService
+        .getInstance();
   }
 
   private void getViews() {
