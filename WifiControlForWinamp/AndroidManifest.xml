@@ -6,22 +6,23 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="16"
-         />
-    
+        android:targetSdkVersion="16" />
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="com.heermann.winampremote.WifiControlApp"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat" >
         <activity
             android:name="com.heermann.winampremote.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -29,10 +30,9 @@
         <activity android:name="com.heermann.winampremote.EqualizerActivity" />
         <activity android:name="com.heermann.winampremote.PlaylistActivity" />
         <activity android:name="com.heermann.winampremote.PreferencesActivity" />
-        
+
         <!-- Services -->
-        <service android:name="com.heermann.winampremote.services.ConnectionService"/>
-        
+        <service android:name="com.heermann.winampremote.services.ConnectionService" />
     </application>
 
 </manifest>

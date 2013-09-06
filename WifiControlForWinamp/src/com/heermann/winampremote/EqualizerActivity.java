@@ -1,13 +1,14 @@
 package com.heermann.winampremote;
 
-import com.heermann.winampremote.R;
-
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-public class EqualizerActivity extends Activity {
+public class EqualizerActivity extends Fragment {
 
   private class EqualizerChangeListener implements OnSeekBarChangeListener {
     private int band;
@@ -38,22 +39,25 @@ public class EqualizerActivity extends Activity {
   private MessagingService messagingService;
 
   @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
+  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+      Bundle savedInstanceState) {
+    return inflater.inflate(R.layout.equalizer, container, false);
+  }
 
-    setContentView(R.layout.equalizer);
-
+  @Override
+  public void onActivityCreated(Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
     equalizer = new SeekBar[10];
-    equalizer[0] = (SeekBar) findViewById(R.id.eq0);
-    equalizer[1] = (SeekBar) findViewById(R.id.eq1);
-    equalizer[2] = (SeekBar) findViewById(R.id.eq2);
-    equalizer[3] = (SeekBar) findViewById(R.id.eq3);
-    equalizer[4] = (SeekBar) findViewById(R.id.eq4);
-    equalizer[5] = (SeekBar) findViewById(R.id.eq5);
-    equalizer[6] = (SeekBar) findViewById(R.id.eq6);
-    equalizer[7] = (SeekBar) findViewById(R.id.eq7);
-    equalizer[8] = (SeekBar) findViewById(R.id.eq8);
-    equalizer[9] = (SeekBar) findViewById(R.id.eq9);
+    equalizer[0] = (SeekBar) getView().findViewById(R.id.eq0);
+    equalizer[1] = (SeekBar) getView().findViewById(R.id.eq1);
+    equalizer[2] = (SeekBar) getView().findViewById(R.id.eq2);
+    equalizer[3] = (SeekBar) getView().findViewById(R.id.eq3);
+    equalizer[4] = (SeekBar) getView().findViewById(R.id.eq4);
+    equalizer[5] = (SeekBar) getView().findViewById(R.id.eq5);
+    equalizer[6] = (SeekBar) getView().findViewById(R.id.eq6);
+    equalizer[7] = (SeekBar) getView().findViewById(R.id.eq7);
+    equalizer[8] = (SeekBar) getView().findViewById(R.id.eq8);
+    equalizer[9] = (SeekBar) getView().findViewById(R.id.eq9);
 
     eqListeners = new EqualizerChangeListener[equalizer.length];
     for (int i = 0; i < eqListeners.length; i++) {
@@ -63,4 +67,5 @@ public class EqualizerActivity extends Activity {
 
     messagingService = MessagingService.getInstance();
   }
+
 }

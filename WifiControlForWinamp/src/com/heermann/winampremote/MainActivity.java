@@ -1,9 +1,10 @@
 package com.heermann.winampremote;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.app.ProgressDialog;
-import android.app.TabActivity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -12,18 +13,26 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TabHost;
 import android.widget.Toast;
 
 import com.heermann.winampremote.services.ConnectionService;
 
-public class MainActivity extends TabActivity {
+public class MainActivity extends ActionBarActivity {
 
   // /---------------------- UI -------------------///
-  private TabHost tabHost;
+  private ActionBar actionBar;
+  private ViewPager mViewPager;
+  private PageAdapter mPageAdapter;
   private ProgressDialog workingDialog;
 
   // /---------------------- OTHER -------------------///
@@ -35,17 +44,52 @@ public class MainActivity extends TabActivity {
   // Receivers
   private WifiControlReceiver wifiControlReceiver;
 
+  // Listeners
+  private ActionBar.TabListener actionBarTabListener;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
+
+    // Get ViewPager
+    mViewPager = (ViewPager) findViewById(R.id.viewPager);
+
+    // Configure ActionBar
+    actionBar = getSupportActionBar();
+    actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+    // Set ViewPager listeners
+    mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
+
+      @Override
+      public void onPageSelected(int position) {
+        actionBar.setSelectedNavigationItem(position);
+      }
+
+      @Override
+      public void onPageScrolled(int arg0, float arg1, int arg2) {
+
+      }
+
+      @Override
+      public void onPageScrollStateChanged(int arg0) {
+
+      }
+    });
+
+    // Initialize TabListener
+    actionBarTabListener = new ActioBarTabListener();
+
+    // Add navigation tabs to action bar
+    addTabs();
 
     wifiControlApp = (WifiControlApp) getApplication();
     connectWithHost();
 
     preferences = PreferenceManager.getDefaultSharedPreferences(this);
     resources = getResources();
-    addTabs();
+
   }
 
   @Override
@@ -92,33 +136,22 @@ public class MainActivity extends TabActivity {
   }
 
   private void addTabs() {
-    tabHost = getTabHost();
 
-    tabHost.addTab(tabHost
-        .newTabSpec(getString(R.string.tab_player))
-        .
-        // setIndicator(resources.getString(R.string.tab_player),
-        // resources.getDrawable(android.R.drawable.ic_menu_agenda)).
-        setIndicator(getString(R.string.tab_player))
-        .setContent(new Intent(this, PlayerActivity.class)));
+    // Create fragments
+    List<Fragment> fragments = new ArrayList<Fragment>();
+    fragments.add(Fragment.instantiate(this, PlayerActivity.class.getName()));
+    fragments.add(Fragment.instantiate(this, PlaylistActivity.class.getName()));
+    fragments
+        .add(Fragment.instantiate(this, EqualizerActivity.class.getName()));
+    mPageAdapter = new PageAdapter(getSupportFragmentManager(), fragments);
+    mViewPager.setAdapter(mPageAdapter);
 
-    tabHost.addTab(tabHost
-        .newTabSpec(getString(R.string.tab_playlist))
-        .
-        // setIndicator(resources.getString(R.string.tab_playlist),
-        // resources.getDrawable(android.R.drawable.ic_menu_agenda)).
-        setIndicator(getString(R.string.tab_playlist))
-        .setContent(new Intent(this, PlaylistActivity.class)));
-
-    tabHost.addTab(tabHost
-        .newTabSpec(getString(R.string.tab_equalizer))
-        .
-        // setIndicator(resources.getString(R.string.tab_equalizer),
-        // resources.getDrawable(android.R.drawable.ic_menu_agenda)).
-        setIndicator(getString(R.string.tab_equalizer))
-        .setContent(new Intent(this, EqualizerActivity.class)));
-
-    tabHost.setCurrentTab(0);
+    actionBar.addTab(actionBar.newTab().setText(R.string.tab_player)
+        .setTabListener(actionBarTabListener));
+    actionBar.addTab(actionBar.newTab().setText(R.string.tab_playlist)
+        .setTabListener(actionBarTabListener));
+    actionBar.addTab(actionBar.newTab().setText(R.string.tab_equalizer)
+        .setTabListener(actionBarTabListener));
   }
 
   // -------------------------- UI Managers --------------------------//
@@ -136,6 +169,28 @@ public class MainActivity extends TabActivity {
     toast.show();
   }
 
+  // TabListener
+  private class ActioBarTabListener implements ActionBar.TabListener {
+
+    @Override
+    public void onTabUnselected(Tab arg0, FragmentTransaction arg1) {
+      // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onTabSelected(Tab tab, FragmentTransaction fragmentTransaction) {
+      mViewPager.setCurrentItem(tab.getPosition());
+    }
+
+    @Override
+    public void onTabReselected(Tab arg0, FragmentTransaction arg1) {
+      // TODO Auto-generated method stub
+
+    }
+  }
+
+  // Broadcast Reveiver
   private class WifiControlReceiver extends BroadcastReceiver {
 
     private static final String TAG = "WifiControlReceiver";
@@ -150,7 +205,7 @@ public class MainActivity extends TabActivity {
             MessageListener messageListener = new MessageListener(
                 wifiControlApp.getHostConnection().getInputStream());
             messageListener.execute();
-            
+
             MessagingService.getInstance().setSocket(
                 wifiControlApp.getHostConnection());
           } catch (IOException e) {

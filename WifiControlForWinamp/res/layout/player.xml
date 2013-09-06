@@ -21,8 +21,7 @@
                 android:layout_height="wrap_content"
                 android:textOff="@string/toggle_repeat"
                 android:textOn="@string/toggle_repeat"
-                android:textSize="10sp"
-                android:onClick="toggleRepeat" />
+                android:textSize="12sp" />
 
             <ToggleButton
                 android:id="@+id/toggle_shuffle"
@@ -30,8 +29,7 @@
                 android:layout_height="wrap_content"
                 android:textOff="@string/toggle_shuffle"
                 android:textOn="@string/toggle_shuffle"
-                android:textSize="10sp"
-                android:onClick="toggleShuffle" />
+                android:textSize="12sp" />
 
             <ToggleButton
                 android:id="@+id/toggle_mute"
@@ -39,8 +37,7 @@
                 android:layout_height="wrap_content"
                 android:textOff="@string/toggle_mute"
                 android:textOn="@string/toggle_mute"
-                android:textSize="10sp"
-                android:onClick="toggleMute" />
+                android:textSize="12sp" />
         </LinearLayout>
 
         <SeekBar
@@ -87,8 +84,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/bitrate"
@@ -97,7 +94,7 @@
             android:layout_weight="2"
             android:gravity="left"
             android:text="" />
-        
+
         <TextView
             android:id="@+id/track_length"
             android:layout_width="0dp"
@@ -105,7 +102,7 @@
             android:layout_weight="2"
             android:gravity="center_horizontal"
             android:text="" />
-        
+
         <TextView
             android:id="@+id/frecuency"
             android:layout_width="0dp"
@@ -130,40 +127,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/prev_track"
-            android:src="@drawable/previous"
-            android:onClick="previous" />
+            android:src="@drawable/previous" />
 
         <ImageButton
             android:id="@+id/play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/play_track"
-            android:src="@drawable/play"
-            android:onClick="play" />
+            android:src="@drawable/play" />
 
         <ImageButton
             android:id="@+id/pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/pause_track"
-            android:src="@drawable/pause"
-            android:onClick="pause" />
+            android:src="@drawable/pause" />
 
         <ImageButton
             android:id="@+id/stop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/stop_track"
-            android:src="@drawable/stop"
-            android:onClick="stop" />
+            android:src="@drawable/stop" />
 
         <ImageButton
             android:id="@+id/next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/next_track"
-            android:src="@drawable/next"
-            android:onClick="next" />
+            android:src="@drawable/next" />
 
         <TextView
             android:layout_width="0dp"
