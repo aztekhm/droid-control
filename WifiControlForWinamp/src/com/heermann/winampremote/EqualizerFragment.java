@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
-public class EqualizerActivity extends Fragment {
+public class EqualizerFragment extends Fragment {
 
   private class EqualizerChangeListener implements OnSeekBarChangeListener {
     private int band;

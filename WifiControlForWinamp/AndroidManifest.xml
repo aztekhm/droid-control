@@ -26,9 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.heermann.winampremote.PlayerActivity" />
-        <activity android:name="com.heermann.winampremote.EqualizerActivity" />
-        <activity android:name="com.heermann.winampremote.PlaylistActivity" />
+        <activity android:name="com.heermann.winampremote.PlayerFragment" />
+        <activity android:name="com.heermann.winampremote.EqualizerFragment" />
+        <activity android:name="com.heermann.winampremote.PlaylistFragment" />
         <activity android:name="com.heermann.winampremote.PreferencesActivity" />
 
         <!-- Services -->

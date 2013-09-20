@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-public class PlayerActivity extends Fragment implements OnClickListener {
+public class PlayerFragment extends Fragment implements OnClickListener {
 
   private OnSeekBarChangeListener volumeChangeListener = new OnSeekBarChangeListener() {
     @Override

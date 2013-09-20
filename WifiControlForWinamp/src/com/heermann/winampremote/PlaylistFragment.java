@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
-public class PlaylistActivity extends Fragment {
+public class PlaylistFragment extends Fragment {
 
   public static List<PlaylistEntry> entrys;
   private static PlaylistAdapter adapter;

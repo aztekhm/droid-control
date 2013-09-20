@@ -139,10 +139,10 @@ public class MainActivity extends ActionBarActivity {
 
     // Create fragments
     List<Fragment> fragments = new ArrayList<Fragment>();
-    fragments.add(Fragment.instantiate(this, PlayerActivity.class.getName()));
-    fragments.add(Fragment.instantiate(this, PlaylistActivity.class.getName()));
+    fragments.add(Fragment.instantiate(this, PlayerFragment.class.getName()));
+    fragments.add(Fragment.instantiate(this, PlaylistFragment.class.getName()));
     fragments
-        .add(Fragment.instantiate(this, EqualizerActivity.class.getName()));
+        .add(Fragment.instantiate(this, EqualizerFragment.class.getName()));
     mPageAdapter = new PageAdapter(getSupportFragmentManager(), fragments);
     mViewPager.setAdapter(mPageAdapter);
 
